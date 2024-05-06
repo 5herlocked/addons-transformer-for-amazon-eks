@@ -23,5 +23,5 @@ jobs:
           git config --local user.name "GitHub Action"
           git branch -c docs/${{ github.sha }}
           git commit -am "Generate docs: ${{ github.sha }}"
-          git push docs/${{ github.sha }}
+          git push
           gh pr create -B main -b "Updated docs for ${{ github.sha }}"
