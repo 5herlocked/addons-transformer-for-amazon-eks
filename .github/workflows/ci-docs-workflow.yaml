@@ -21,5 +21,7 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
+          git branch -c docs/${{ github.ref }}
           git commit -am "Generate docs: ${{ github.ref }}"
-          git push
+          git push docs/${{ github.ref }}
+          gh pr create -B main -b "Updated docs for ${{ github.ref }}"
